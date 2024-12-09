@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace AwesomeShop.Services.Orders.Core.ValueObjects
 {
-    public class DeliveryAdress
+    public class DeliveryAddress
     {
-        public DeliveryAdress(string street, string number, string city, string state, string zipCode)
+        public DeliveryAddress(string street, string number, string city, string state, string zipCode)
         {
             Street = street;
             Number = number;
@@ -25,7 +25,7 @@ namespace AwesomeShop.Services.Orders.Core.ValueObjects
         public override bool Equals(object obj)
         {
     
-        return obj is DeliveryAdress address &&
+        return obj is DeliveryAddress address &&
         Street == address.Street && 
         Number == address.Number &&
         City == address.City &&
