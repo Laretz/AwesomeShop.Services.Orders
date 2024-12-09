@@ -8,12 +8,12 @@ namespace AwesomeShop.Services.Orders.Core.Entities
 {
     public class AggregateRoot : IEntityBase
     {
-        private readonly List<IDomainEvents> _events = new List<IDomainEvents>();
+        private readonly List<IDomainEvent> _events = new List<IDomainEvent>();
         public Guid Id {get; protected set;}
 
-        public IEnumerable<IDomainEvents> Events => _events;
+        public IEnumerable<IDomainEvent> Events => _events;
 
-        protected void AddEvent(IDomainEvents @event){
+        protected void AddEvent(IDomainEvent @event){
             _events.Add(@event);
         }
     }
