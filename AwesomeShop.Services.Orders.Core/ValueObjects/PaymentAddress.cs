@@ -25,7 +25,7 @@ namespace AwesomeShop.Services.Orders.Core.ValueObjects
         public override bool Equals(object obj)
         {
     
-        return obj is DeliveryAdress address &&
+        return obj is DeliveryAddress address &&
         Street == address.Street && 
         Number == address.Number &&
         City == address.City &&

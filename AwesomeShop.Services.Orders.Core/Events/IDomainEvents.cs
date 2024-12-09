@@ -9,6 +9,6 @@ namespace AwesomeShop.Services.Orders.Core.Events
     public interface IDomainEvent : IEntityBase
     {
        
-        public Guid Id {get; protected set;}
+        public new Guid Id {get; protected set;}
     }
 }
