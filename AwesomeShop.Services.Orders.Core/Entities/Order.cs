@@ -20,7 +20,8 @@ namespace AwesomeShop.Services.Orders.Core.Entities
             PaymentInfo = paymentInfo;
             DeliveryAddress = deliveryAddress;
             PaymentAddress = paymentAddress;
-
+            Status = OrderStatus.Started;
+            
             CreatedAt = DateTime.Now;
 
             AddEvent(new OrderCreated(Id,TotalPrice, paymentInfo, Customer.FullName, Customer.Email));
