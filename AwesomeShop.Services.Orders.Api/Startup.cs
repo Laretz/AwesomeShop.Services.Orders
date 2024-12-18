@@ -33,6 +33,7 @@ namespace AwesomeShop.Services.Orders.Api
                 .AddRepositories()
                 .AddHandlers();
             
+            services.AddHttpClient();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
