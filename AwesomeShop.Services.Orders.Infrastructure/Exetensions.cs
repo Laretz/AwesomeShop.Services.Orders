@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AwesomeShop.Services.Orders.Core.Repositories;
+using AwesomeShop.Services.Orders.Infrastructure.MessageBus;
 using AwesomeShop.Services.Orders.Infrastructure.Persistence;
 using AwesomeShop.Services.Orders.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +46,21 @@ namespace AwesomeShop.Services.Orders.Infrastructure
             return services;
         }
 
+        public static IServiceCollection AddRabbitMq (this IServiceCollection services){
+            var connectionFactory = new ConnectionFactory{
+              HostName = "localhost"  
+            };
+
+            var connection = connectionFactory.CreateConnection("order-service-producer");
+
+            services.AddSingleton(new ProducerConnection(connection));
+            services.AddSingleton<IMessageBusClient, RabbitMqClient>();
+
+
+            return services;
+        }
+
+        
       
     }
 }
